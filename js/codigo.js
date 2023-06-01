@@ -1,61 +1,113 @@
 
 
 
-console.log ("Bievenido a CryptoPrestamos, donde usted va a poder solicitar prestamos en usdt.");
+console.log ("Bievenido a CholiPetShop");
 
-let login = prompt ("ingrese su nombre y apellido");
-
-let dni= prompt ("Ingrese su numero de documento");
-
-let monto = prompt ("ingrese monto a solicitar en usdt por favor");
-
-let cuotas = prompt ("en cuantas cuotas le gustaria devolver el prestamo? 3, 6, 9 o 12");
-
-monto = parseInt(monto);
-
-cuotas = parseInt(cuotas);
+let login = prompt ("ingrese su nombre");
 
 
 
 
+class producto{
+    constructor (nombre, precio, kg, stock){
+        this.nombre= nombre;
+        this.precio= precio;
+        this.kg= kg;
+        this.stock= stock;
+    }
+
+    get_datos(){
+        console.log("nombre", this.nombre);
+        console.log("el precio es de ", this.precio);
+        console.log("los kg que trae son ", this.kg);
+        console.log("el estock es de unidades", this.stock);
+
+    }
+}
+
+let productos_com_perros = [];
+
+productos_com_perros.push(new producto ("pedigree", 12000, 8, 15));
+productos_com_perros.push(new producto ("royal canin", 14000, 4, 5));
+productos_com_perros.push(new producto ("eukanua", 11000, 10, 6));
+productos_com_perros.push(new producto ("sieber", 9000, 15, 16));
+productos_com_perros.push(new producto ("purina proplan", 13000, 7, 12));
+
+
+console.log("esta es la lista de productos");
+console.log(productos_com_perros);
+
+
+//h function map//
+
+console.log("Obtenga un descuento abonando en efectivo");
+console.log("A continuacion le mostramos la lista de precios")
+
+
+function descuento_efect(producto){
+
+    let descuento = producto.precio * 0.15;
+    
+    return{
+        nombre: producto.nombre,
+        precio: producto.precio - descuento,
+        kg: producto.kg,
+        stock: producto.stock,
+    }
+}
+
+let resultado_map = productos_com_perros.map(descuento_efect);
+console.log(resultado_map);
+
+
+// h.function    .filter//
+
+
+let busqueda_kg = prompt("ingrese que kg desea buscar")
+console.log("los productos en stock disponibles segun su busqueda son: ")
+
+function mayor_10kg (kilos){
+    return kilos.kg >= busqueda_kg
+}
+
+let resrultado_filtro = productos_com_perros.filter(mayor_10kg);
+console.log(resrultado_filtro);  
+
+
+
+
+
+
+// function interes para pagos con tarjeta de credito//
 
 function interes (monto, cuotas){
     if (cuotas == 3){
-        let interes = monto * 0.11
+        let interes = monto * 0.15
         return interes;
     }
     else if (cuotas == 6){
-        let interes = monto * 0.24
+        let interes = monto * 0.70
         return interes;
     }
-    else if (cuotas == 9){
-        let interes = monto * 0.39
-        return interes;
-    }
-    else if (cuotas == 12){
-        let interes = monto * 0.57
-        return interes;
-    }
-    else (cuotas != 3, 6, 9, 12);{
+    else (cuotas != 3, 6);{
         alert ("El numero de cuotas solicitado no es correcto, revisar por favor");
     }
 }
 
+console.log("Si desea abonar con tarjeta de credito lo puede hacer en 3 o 6 cuotas, A continuacion le mostramos la lista de precios");
 
-let abono_total = monto + interes (monto, cuotas);
+//let cuotas = prompt ("Ingrese en cuantas cuotas le gustaria pagar, 3 o 6");//
+// DEJO EL PROMPT DE CUOTAS A MODO DE COMENTARIO YA QUE EN UN FUTURO LA IDEA SERIA IMPLEMENTAR ESATA FUNCION EN UN BOTON EN CASE DE QUE EL CLIENTE QUIERA ABONAR CON TARJETA//
 
-abono_total = parseInt(abono_total);
+//SEGUN SI EL CLIENTE ELIGE EN 6 O 3 CUOTAS, USARIA LA H.ORDEN FUNC .MAP USANDO LA VARIABLE INTERES PARA PODER MOSTRAR UNA LISTA CON LOS PRECIOS INCLUIDOS EL INTERES//
 
 
-console.log (login + "" + " muchas gracias por solicitar un prestamo");
-console.log ("El monto solicitado fue de "+ "" + monto );
-console.log ("La cantidad de cuotas que usted eligio son " + "" + cuotas);
-console.log ("El monto total a devolver es de "+ " " + abono_total)
-console.log ("El pago mensual de la cuota seria de " + " " + (abono_total / cuotas) );
+
+
+
+
+
 
 for (let i = 0; i < 3; i = i + 1){
-    let crypto = prompt ("Escriba tres monedas en las que le gustaria devolver el prestamo");
-    console.log ("Las crypto que usted eligio para devolver su prestamos son ");
-    console.log (crypto);
-    
+    let Mybusqueda = prompt ("Escriba tres articulos de su interes para ver las mejores ofertas del dia");   
 }
