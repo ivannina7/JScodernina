@@ -1,0 +1,39 @@
+[
+    {
+      "nombre": "Pedigree",
+      "precio": 12300,
+      "kg": 21,
+      "stock": 15
+    },
+    {
+      "nombre": "Dogpro",
+      "precio": 10900,
+      "kg": 20,
+      "stock": 5
+    },
+    {
+      "nombre": "Sieger",
+      "precio": 15000,
+      "kg": 20,
+      "stock": 6
+    },
+    {
+      "nombre": "RoyalCanin",
+      "precio": 12800,
+      "kg": 7,
+      "stock": 16
+    },
+    {
+      "nombre": "purinaproplan",
+      "precio": 19300,
+      "kg": 18,
+      "stock": 12
+    },
+    {
+      "nombre": "SobrePedigree",
+      "precio": 2300,
+      "kg": 4,
+      "stock": 12
+    }
+  ]
+  

@@ -136,3 +136,39 @@ botonesCompra.forEach((boton, index) => {
     });
 });
 
+
+
+
+Swal.fire ({
+    title: "Articulo agregado",
+    Text: "agrego 1 articulo",
+    icon: "success",
+})
+
+
+function fetchData(url) {
+    return fetch(url)
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error('Error en la solicitud: ' + response.status);
+        }
+        return response.json();
+      })
+      .catch(function(error) {
+        throw error;
+      });
+  }
+  
+  // Ejemplo de uso:
+  const ArchivoJSON = "/info.json";
+  
+  fetchData(ArchivoJSON)
+    .then(function(data) {
+      // Trabaja con los datos obtenidos desde el archivo JSON
+      console.log(data);
+    })
+    .catch(function(error) {
+      // Manejo de errores en caso de que la solicitud falle
+      console.log('Error:', error);
+    });
+  
